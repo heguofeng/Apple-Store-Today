@@ -1,0 +1,226 @@
+*.lock {
+    overflow: hidden;
+}
+
+.list-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+.cards-list {
+    position: relative;
+    padding: 15px 15px 20px;
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+    /* For iPhone X */
+    max-width: 400px;
+    margin: auto;
+}
+
+.card {
+    position: relative;
+    height: 45vh;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s ease, box-shadow 0.2s ease;
+    opacity: 1;
+    margin-bottom: 40px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #e7e7e7;
+}
+
+.card.open {
+    border-radius: 0;
+}
+
+.card.hover,
+.card:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.card.hover .banner {
+    /* background-size: 105%; */
+    /* transition: all 0.5s; */
+}
+
+.card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0);
+    overflow: hidden;
+    transition: border-radius 0.15s ease;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.card.open .card-content {
+    z-index: 500 !important;
+    background: #fff;
+    border-radius: 0px;
+    cursor: default;
+}
+
+.banner-holder {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.banner {
+    position: relative;
+    height: 20vh;
+    width: 100%;
+    padding: 15px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    overflow: hidden;
+    z-index: 1;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    /* overflow: hidden; */
+}
+
+.card.open .banner {
+    height: 45vh;
+    border-radius: 0;
+}
+
+.content-holder {
+    max-width: 600px;
+    padding: 0;
+    z-index: 1;
+    height: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    position: relative;
+}
+
+.card.open .content-holder {
+    overflow: auto;
+}
+
+.inner-content {
+    top: 20vh;
+    padding: 20px;
+    position: relative;
+    background-color: #e7e7e7;
+    /* transition: border-radius 0.5s ease; */
+}
+
+.card.open .inner-content {
+    top: 40vh;
+    padding-bottom: env(safe-area-inset-bottom);
+    /* for iPhone X */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.info-holder {
+    display: flex;
+    align-items: center;
+}
+
+.date-category {
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.5;
+    margin-bottom: 0;
+    flex: 1;
+    margin: 0 1.4rem 0 0;
+}
+
+.like-wrapper {
+    position: relative;
+    cursor: pointer;
+    padding-left: 40px;
+}
+
+.like-wrapper .fa,
+.bookmark-wrapper .fa {
+    opacity: 0.3;
+}
+
+.like-wrapper.btn-liked .fa {
+    opacity: 1;
+    color: red;
+}
+
+.like-wrapper span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: right;
+    opacity: 0.3;
+    width: 35px;
+    line-height: 24px;
+    font-size: 12px;
+}
+
+.bookmark-wrapper {
+    margin-left: 8px;
+    width: 24px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.title {
+    position: relative;
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 16px;
+    line-height: 1.5;
+    opacity: 0.6;
+
+}
+
+.card:not(.open) .description {
+    overflow: hidden;
+    /* Clips content to 3 lines when card is collapsed */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    height: 4.2em;
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    height: 28px;
+    width: 28px;
+    line-height: 27px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    color: #333;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.15s ease-in-out;
+}
+
+.card.open .close-btn {
+    z-index: 600;
+    opacity: 0.9;
+    visibility: visible;
+}
